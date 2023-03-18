@@ -134,6 +134,7 @@ With the file index.html the CSS file is already included, but the CSS file does
    ``` 
 
 Via Sass the class `my-article` is styled now:
+
  example --> *Examples/Part_1/styles/style.scss*
    ```
     $color-primary: #5f5f5f;
@@ -151,7 +152,7 @@ Via Sass the class `my-article` is styled now:
     } 
    ```
 
-In order for the CSS preprocessor Sass to now automatically make a CSS file **style.css** out of it, all you have to do is activate the *WATCH SASS* option at the bottom of the Visual Studio Code development environment. This turns the live translation from Sass/SCSS to CSS.
+In order for the CSS preprocessor Sass to now automatically make a CSS file **style.css** out of it, all you have to do is activate the *Watch Sass* option at the bottom of the Visual Studio Code development environment. This turns the live translation from Sass/SCSS to CSS.
 
  ![Preview](images/WatchSass.JPG)
 
