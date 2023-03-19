@@ -9,6 +9,7 @@
 	- 1.1. The syntax Sass or SCSS
 	- 1.2. From Sass/SCSS to CSS
     - 1.3. Install and set up Sass
+    - 1.4. Use variables with Sass
 
 ------------------------------------------------------
 
@@ -185,3 +186,50 @@ As long as *Watch Sass* is enabled, there is no need to worry about updating the
 
 
 ### Install Sass for the command line
+Sass can also be installed via the command line, this requires **Ruby** on the computer. For macOS, **Ruby** is already available. To use **Ruby** for Windows, the [Ruby Installer](https://rubyinstaller.org) must be downloaded and installed. For Linux, the following command must be entered in the command line to install **Ruby**:
+
+   ```
+    $ sudo apt-get install ruby
+   ```
+
+If Ruby is installed, the command line must be opened. For Windows open the start menu and *START COMMAND PROMPT WITH RUBY*. For macOS and Linux just start the terminal. And then enter the following command:
+
+   ```
+    $ gem install sass
+   ```
+
+For macOS and Linux, sudo may need to be used:
+
+   ```
+    $ sudo gem install sass
+   ```
+
+The version number can then be queried with `sass -v`, if the version is displayed, Sass has been successfully installed.
+
+For a compilation of a SCSS file, the following command must be entered in the command line, (in the directory where the Sass file with the extension *.scss is stored) to convert the file into a CSS file:
+
+   ```
+    $ sass style.scss:style.css
+   ```
+
+In the command line it is also possible to set up monitoring for files or directories, so that after each saved change in the SCSS file are automatically compiled:
+
+   ```
+    $ sass -watch style.scss:style.css
+   ```
+
+An entire folder can be monitored with the following command:
+
+   ```
+    $ sass -watch styles:styles
+   ```
+
+It is also possible to create a folder with e.g. **scss** and a folder **css**, for more overview. So that then when compiling this SCSS files the CSS files are stored in the directory **css**:
+
+   ```
+    $ sass -watch stylesheets/scss:stylesheets/css
+   ```
+
+---------------------------------------------------------
+
+## 1.4. Use variables with Sass
