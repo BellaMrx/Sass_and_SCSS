@@ -10,6 +10,8 @@
 	- 1.2. From Sass/SCSS to CSS
     - 1.3. Install and set up Sass
     - 1.4. Use variables with Sass
+    - 1.5. Nesting with Sass
+    - 1.6. Mixins (@mixin, @include)
 
 ------------------------------------------------------
 
@@ -64,6 +66,7 @@ Sass and SCSS are not necessarily two different CSS preprocessors, because both 
 	    color: $color1
    ``` 
 
+
 -----------------------------------------------------
 
 ## 1.2. From Sass/SCSS to CSS
@@ -103,6 +106,7 @@ The web browser cannot do anything with the SCSS file, for this the CSS preproce
 	    color: #00ff00;
 	}   
    ```
+
 
 --------------------------------------------------------
 
@@ -230,6 +234,7 @@ It is also possible to create a folder with e.g. **scss** and a folder **css**, 
     $ sass -watch stylesheets/scss:stylesheets/css
    ```
 
+
 ---------------------------------------------------------
 
 ## 1.4. Use variables with Sass
@@ -295,4 +300,85 @@ in practice:
 
  ![Preview](images/Preview_1_2.JPG)
 
- 
+
+ ---------------------------------------------------
+
+## 1.5. Nesting with Sass
+Nesting of selectors (selector nesting) is an enormous relief, however, the use should remain in the frame. A nesting of two to three levels should be sufficient. Here an example within the class `my-article` the selectors `p` and `h1` are nested.
+
+ example --> *Examples/Part_3/styles/style.scss*
+   ```
+    ...
+    .my-article {
+        width: 30rem;
+        background-color: $color-primary;
+        color: $color-primary-font;
+        padding: 0.1em;
+        margin-bottom: $spacing-std;
+        border-radius: 5px;
+        h1 {
+            padding-left: 0.5em;
+        }
+        p {
+            background-color: $color-secondary;
+            color: $color-secondary-font;
+            padding: 1em;
+        }
+    }  
+   ```
+
+ example --> *Examples/Part_3/styles/style.css*
+   ```
+    ...
+    .my-article {
+        width: 30rem;
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 0.1em;
+        margin-bottom: 1em;
+        border-radius: 5px;
+    }
+    .my-article h1 {
+        padding-left: 0.5em;
+    }
+    .my-article p {
+        background-color: #fff;
+        color: #000;
+        padding: 1em;
+    } 
+   ```
+
+ ![Preview](images/Preview_1_3.JPG)
+
+Nesting is also useful for CSS properties (property nesting), which are grouped under a name abbreviation. Here is an example for the property `padding`:
+
+ example --> *Examples/Part_4/styles/style.scss*
+   ```
+    ...
+    .my-article {
+    ...
+    h1 {
+        padding: {
+            left: 0.5em;
+            top: 0.1em;
+            bottom: 0.1em;
+        }
+    }
+    ...
+    }
+   ```
+
+ example --> *Examples/Part_4/styles/style.css*
+   ```
+    ...
+    .my-article h1 {
+        padding-left: 0.5em;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+    }
+    ...
+   ```
+
+------------------------------------------------------------
+
+## 1.6. Mixins (@mixin, @include)
