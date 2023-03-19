@@ -233,3 +233,66 @@ It is also possible to create a folder with e.g. **scss** and a folder **css**, 
 ---------------------------------------------------------
 
 ## 1.4. Use variables with Sass
+In order not to have to change constantly repeating properties individually and laboriously in extensive CSS projects, you can save yourself this work with variables in Sass.
+Variables are used to set a value for a CSS property that is then used throughout the SCSS document. After compiling the SCSS file, these variables are replaced in the CSS file with the actual value.
+
+A variable is introduced with `$`, followed by the name of the variable without spaces. With the colon a value is assigned to the variable and with the semicolon the line is closed.
+
+   ```
+    $variable-name: value;
+   ```
+
+in practice:
+
+   ```
+    $color-primary: #5f5f5f;
+    $color-primary-font: #fff; 
+    $font: Arial, sans-serif;
+    $spacing-std: 1em; 
+   ```
+
+ example --> *Examples/Part_2/styles/style.scss*
+   ```
+    $color-primary: #5f5f5f;
+    $color-primary-font: #fff;
+    $font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+    $spacing-std: 1em;
+    * {
+        margin-top: 0;
+    }
+
+    body {
+        font-family: $font;
+    }
+
+    .my-article {
+        width: 30rem;
+        background-color: $color-primary;
+        color: $color-primary-font;
+        padding: $spacing-std;
+        margin-bottom: $spacing-std;
+    }   
+   ```
+
+ example --> *Examples/Part_2/styles/style.css*
+   ```
+    * {
+        margin-top: 0;
+    }
+
+    body {
+        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+    }
+
+    .my-article {
+        width: 30rem;
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 1em;
+        margin-bottom: 1em;
+    }  
+   ```
+
+ ![Preview](images/Preview_1_2.JPG)
+
+ 

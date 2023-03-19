@@ -1,0 +1,19 @@
+$color-primary: #5f5f5f;
+$color-primary-font: #fff;
+$font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+$spacing-std: 1em;
+* {
+    margin-top: 0;
+}
+
+body {
+    font-family: $font;
+}
+
+.my-article {
+    width: 30rem;
+    background-color: $color-primary;
+    color: $color-primary-font;
+    padding: $spacing-std;
+    margin-bottom: $spacing-std;
+}
