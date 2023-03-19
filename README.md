@@ -382,3 +382,132 @@ Nesting is also useful for CSS properties (property nesting), which are grouped 
 ------------------------------------------------------------
 
 ## 1.6. Mixins (@mixin, @include)
+**Mixins** are also a very much used feature of Sass. These are entire blocks of CSS properties that can be reused as a whole at any time. A **mixin** is defined as follows:
+   ```
+    @mixin mixin-namen {
+        ...
+    }
+   ```
+Between the curly braces the CSS properties are noted. With `@include` the code block can now be accessed.
+
+   ```
+    @include mixin-name;
+   ```
+
+ example --> *Examples/Part_5/styles/style.scss*
+   ```
+    ...
+    @mixin article-style {
+        background-color: $color-primary;
+        color: $color-primary-font;
+        padding: 0.1em;
+        margin-bottom: $spacing-std;
+        border-radius: 5px;
+    }
+
+    @mixin article-content {
+        background-color: $color-secondary;
+        color: $color-secondary-font;
+        padding: 2em;
+    }
+    ...
+    .my-article {
+        width: 35rem;
+        @include article-style;
+        h1 {
+            padding-left: 0.5em;
+        }
+        p {
+            @include article-content;
+        }
+    }
+   ```
+
+ example --> *Examples/Part_5/styles/style.css*
+   ```
+    ...
+    .my-article {
+        width: 35rem;
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 0.1em;
+        margin-bottom: 1em;
+        border-radius: 5px;
+    }
+    .my-article h1 {
+        padding-left: 0.5em;
+    }
+    .my-article p {
+        background-color: #fff;
+        color: #000;
+        padding: 2em;
+    }
+   ```
+
+**Mixins** can also be used with arguments. Such arguments are noted inside round brackets with variables.
+
+ example --> *Examples/Part_6/styles/style.scss*
+   ```
+    ...
+    @mixin article-content($bg-color, $txt-color, $spacing) {
+        background-color: $bg-color;
+        color: $txt-color;
+        padding: $spacing;
+    }
+    ...
+    .my-article {
+        width: 35rem;
+        @include article-style;
+        h1 {
+            padding-left: 0.5em;
+        }
+        .p1 {
+            @include article-content($color-secondary, $color-secondary-font, $spacing-std);
+        }
+        .p2 {
+            @include article-content(lightyellow, $color-secondary-font, 0.5em);
+        }
+    }
+   ```
+
+ example --> *Examples/Part_6/styles/style.css*
+   ```
+    ...
+    .my-article .p1 {
+    background-color: #fff;
+    color: #000;
+    padding: 1em;
+    }
+    .my-article .p2 {
+    background-color: lightyellow;
+    color: #000;
+    padding: 0.5em;
+    }
+   ```
+ ![Preview](images/Preview_1_6.JPG)
+
+
+**Mixins** can be used with default values for the arguments. This can be done by writing the default value separated by a colon after the variable:
+
+ example --> *Examples/Part_7/styles/style.scss*
+   ```
+    ...
+    @mixin article-content($bg-color:$color-secondary, $txt-color:$color-secondary-font, $spacing:$spacing-std) {
+        background-color: $bg-color;
+        color: $txt-color;
+        padding: $spacing;
+    }
+    ...
+    .my-article {
+    ...
+
+        .p1 {
+            @include article-content;
+        }
+        .p2 {
+            @include article-content(lightyellow, $color-secondary-font, 0.5em);
+        }
+    }
+   ```
+
+The **Mixin** with arguments and default values can be used with and without values. If no values are set, the default values are used.
