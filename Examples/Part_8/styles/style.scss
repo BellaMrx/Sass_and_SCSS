@@ -1,0 +1,36 @@
+$color-primary: #5f5f5f;
+$color-primary-font: #fff;
+$color-secondary: #fff;
+$color-secondary-font: #000;
+$font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+$spacing-std: 1em;
+body {
+    font-family: $font;
+}
+
+.my-article {
+    width: 35rem;
+    background-color: $color-primary;
+    color: $color-primary-font;
+    padding: 0.1em;
+    margin-bottom: $spacing-std;
+    border-radius: 5px;
+    h1 {
+        padding-left: 0.5em;
+    }
+    p {
+        background-color: $color-secondary;
+        color: $color-secondary-font;
+        padding: 2em;
+    }
+}
+
+.my-article-top {
+    @extend .my-article;
+    background-color: darkslategray;
+}
+
+.my-article-std {
+    @extend .my-article;
+    background-color: darkred;
+}

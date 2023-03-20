@@ -12,6 +12,7 @@
     - 1.4. Use variables with Sass
     - 1.5. Nesting with Sass
     - 1.6. Mixins (@mixin, @include)
+    - 1.7. @extend
 
 ------------------------------------------------------
 
@@ -474,14 +475,14 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
    ```
     ...
     .my-article .p1 {
-    background-color: #fff;
-    color: #000;
-    padding: 1em;
+        background-color: #fff;
+        color: #000;
+        padding: 1em;
     }
     .my-article .p2 {
-    background-color: lightyellow;
-    color: #000;
-    padding: 0.5em;
+        background-color: lightyellow;
+        color: #000;
+        padding: 0.5em;
     }
    ```
  ![Preview](images/Preview_1_6.JPG)
@@ -511,3 +512,136 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
    ```
 
 The **Mixin** with arguments and default values can be used with and without values. If no values are set, the default values are used.
+
+
+-------------------------------------------------------
+
+## 1.7. @extend
+Unnecessary repetitions can also be avoided with **extends**. Such **extends** can be used in two different ways. 
+
+With the first possibility, using `@extend` the CSS property of a selector can be split and in the new selector the necessary properties can be overwritten or extended.
+
+ example --> *Examples/Part_8/styles/style.scss*
+   ```
+    ...
+    .my-article {
+        width: 35rem;
+        background-color: $color-primary;
+        color: $color-primary-font;
+        padding: 0.1em;
+        margin-bottom: $spacing-std;
+        border-radius: 5px;
+        h1 {
+            padding-left: 0.5em;
+        }
+        p {
+            background-color: $color-secondary;
+            color: $color-secondary-font;
+            padding: 2em;
+        }
+    }
+
+    .my-article-top {
+        @extend .my-article;
+        background-color: darkslategray;
+    }
+
+    .my-article-std {
+        @extend .my-article;
+        background-color: darkred;
+    }
+   ```
+
+ example --> *Examples/Part_8/styles/style.css*
+   ```
+    ...
+    .my-article, .my-article-std, .my-article-top {
+        width: 35rem;
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 0.1em;
+        margin-bottom: 1em;
+        border-radius: 5px;
+    }
+    .my-article h1, .my-article-std h1, .my-article-top h1 {
+        padding-left: 0.5em;
+    }
+    .my-article p, .my-article-std p, .my-article-top p {
+        background-color: #fff;
+        color: #000;
+        padding: 2em;
+    }
+
+    .my-article-top {
+        background-color: darkslategray;
+    }
+
+    .my-article-std {
+        background-color: darkred;
+    }
+   ```
+
+With the second possibility, instead of defining a selector which is not used at all and anyway only serves the extension with `@extend`, a placeholder can also be used. Such a placeholder is introduced with `%`.
+
+ example --> *Examples/Part_9/styles/style.scss*
+   ```
+    ...
+    %my-article {
+        width: 35rem;
+        background-color: $color-primary;
+        color: $color-primary-font;
+        padding: 0.1em;
+        margin-bottom: $spacing-std;
+        border-radius: 5px;
+        h1 {
+            padding-left: 0.5em;
+        }
+        p {
+            background-color: $color-secondary;
+            color: $color-secondary-font;
+            padding: 2em;
+        }
+    }
+
+    .my-article-top {
+        @extend %my-article;
+        background-color: darkslategray;
+    }
+
+    .my-article-std {
+        @extend %my-article;
+        background-color: darkred;
+    }
+   ```
+
+ example --> *Examples/Part_9/styles/style.css*
+   ```
+    ...
+    .my-article-std, .my-article-top {
+        width: 35rem;
+        background-color: #5f5f5f;
+        color: #fff;
+        padding: 0.1em;
+        margin-bottom: 1em;
+        border-radius: 5px;
+    }
+    .my-article-std h1, .my-article-top h1 {
+        padding-left: 0.5em;
+    }
+    .my-article-std p, .my-article-top p {
+        background-color: #fff;
+        color: #000;
+        padding: 2em;
+    }
+
+    .my-article-top {
+        background-color: darkslategray;
+    }
+
+    .my-article-std {
+        background-color: darkred;
+    }
+   ```
+
+ ![Preview](images/Preview_1_9.JPG)
+

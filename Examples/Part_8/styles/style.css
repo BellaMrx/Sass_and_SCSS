@@ -1,0 +1,28 @@
+body {
+  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+}
+
+.my-article, .my-article-std, .my-article-top {
+  width: 35rem;
+  background-color: #5f5f5f;
+  color: #fff;
+  padding: 0.1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+.my-article h1, .my-article-std h1, .my-article-top h1 {
+  padding-left: 0.5em;
+}
+.my-article p, .my-article-std p, .my-article-top p {
+  background-color: #fff;
+  color: #000;
+  padding: 2em;
+}
+
+.my-article-top {
+  background-color: darkslategray;
+}
+
+.my-article-std {
+  background-color: darkred;
+}/*# sourceMappingURL=style.css.map */
