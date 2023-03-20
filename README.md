@@ -15,6 +15,7 @@
     - 1.7. @extend
     - 1.8. Media queries and @content
     - 1.9. Operators
+    - 1.10. Adjust colors and brightness
 
 ------------------------------------------------------
 
@@ -807,3 +808,103 @@ With Sass you can also use calculation operators like `+ - * /` and `%`.
 `$base-size * 1em` is used here because the variable `$base-size` has no unit and this way the unit em is set. With `$base-size + $font-increase` this was not necessary, because `$font-increase` is assigned with the unit `em`.
 
 
+--------------------------------------------
+
+## 1.10. Adjust colors and brightness
+Colors can be used in Sass in the same way as in CSS. In addition, functions that adjust the brightness and saturation of colors can be used in Sass.
+
+| Syntax     | Example             | Description                       |
+| ---------- | ------------------- | --------------------------------- |
+| `lighten(color, [n]%)` | background:lighten($color, 10%); | lightens the color by n% |
+| `darken(color, [n]%)` | background:darken($color, 10%); | darkens the color by n% |
+| `desaturate(color, [n]%)` | background:desaturate($color, 30%); | reduces color saturation by n% |
+| `saturate(color, [n]%)` | background:saturate($color, 30%); | increases color saturation by n% |
+| `adjust-hue(color, [n]%)` | background:adjust-hue($color, -80%); | changes the hue of the color by n% |
+| `invert(color)` | background:invert($color); | inverts the color |
+| `complement(color)` | background:complement($color); | creates the complementary color to the specified color |
+| `grayscale(color)` | background:grayscalet($color); | converts the specified color into grayscale |
+
+ example --> *Examples/Part_12/styles/style.scss*
+   ```
+    $btn-default: #3196cb;
+    $btn-color: white;
+
+    @mixin btn($btn-color:orange) {
+        background: $btn-color;
+        border-color: darken($btn-color, 10%);
+    }
+
+    @mixin btn-hover($btn-color:orange) {
+        $hover-color: saturate($btn-color, 10%);
+        $hover-color: darken($hover-color, 10%);
+        background: $hover-color;
+        border-color: darken($btn-color, 20%);
+    }
+
+    @mixin btn-disabled($btn-color:orange) {
+        background: lighten($btn-color, 20%);
+        border-color: lighten($btn-color, 10%);
+    }
+
+    %button-basic {
+        margin-bottom: 1em;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        display: inline-block;
+        border: 1px solid;
+        color: $btn-color;
+    }
+
+    .my-btn {
+        @extend %button-basic;
+        @include btn($btn-default);
+        &:hover {
+            @include btn-hover($btn-default);
+        }
+        &.disabled,
+        &.disabled:hover {
+            cursor: not-allowed;
+            opacity: .65;
+            @include btn-disabled($btn-default);
+        }
+    }
+   ```
+
+ example --> *Examples/Part_12/styles/style.css*
+   ```
+    .my-btn {
+        margin-bottom: 1em;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        display: inline-block;
+        border: 1px solid;
+        color: white;
+    }
+
+    .my-btn {
+        background: #3196cb;
+        border-color: #2778a2;
+    }
+    .my-btn:hover {
+        background: #1d7bac;
+        border-color: #1d5979;
+    }
+    .my-btn.disabled, .my-btn.disabled:hover {
+        cursor: not-allowed;
+        opacity: 0.65;
+        background: #81c0e1;
+        border-color: #58abd7;
+    }
+   ```
+
+ ![Preview](images/Preview_1_12.jpg)
+
+ 

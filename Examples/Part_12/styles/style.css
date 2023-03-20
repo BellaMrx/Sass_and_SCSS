@@ -1,0 +1,29 @@
+/* Colors */
+/* Mixins */
+.my-btn {
+  margin-bottom: 1em;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid;
+  color: white;
+}
+
+.my-btn {
+  background: #3196cb;
+  border-color: #2778a2;
+}
+.my-btn:hover {
+  background: #1d7bac;
+  border-color: #1d5979;
+}
+.my-btn.disabled, .my-btn.disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #81c0e1;
+  border-color: #58abd7;
+}/*# sourceMappingURL=style.css.map */

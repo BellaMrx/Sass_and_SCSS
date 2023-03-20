@@ -1,0 +1,50 @@
+/* Colors */
+
+$btn-default: #3196cb;
+$btn-color: white;
+
+/* Mixins */
+
+@mixin btn($btn-color:orange) {
+    background: $btn-color;
+    border-color: darken($btn-color, 10%);
+}
+
+@mixin btn-hover($btn-color:orange) {
+    $hover-color: saturate($btn-color, 10%);
+    $hover-color: darken($hover-color, 10%);
+    background: $hover-color;
+    border-color: darken($btn-color, 20%);
+}
+
+@mixin btn-disabled($btn-color:orange) {
+    background: lighten($btn-color, 20%);
+    border-color: lighten($btn-color, 10%);
+}
+
+%button-basic {
+    margin-bottom: 1em;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    display: inline-block;
+    border: 1px solid;
+    color: $btn-color;
+}
+
+.my-btn {
+    @extend %button-basic;
+    @include btn($btn-default);
+    &:hover {
+        @include btn-hover($btn-default);
+    }
+    &.disabled,
+    &.disabled:hover {
+        cursor: not-allowed;
+        opacity: .65;
+        @include btn-disabled($btn-default);
+    }
+}
