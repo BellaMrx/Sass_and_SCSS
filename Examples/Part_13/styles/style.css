@@ -1,0 +1,59 @@
+/* Colors */
+/* Mixins */
+.my-btn-darkgreen, .my-btn-darkred, .my-btn-blue {
+  margin-bottom: 1em;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid;
+  color: white;
+}
+
+.my-btn-blue {
+  background: blue;
+  border-color: #0000cc;
+}
+.my-btn-blue:hover {
+  background: #0000cc;
+  border-color: #000099;
+}
+.my-btn-blue.disabled, .my-btn-blue.disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #6666ff;
+  border-color: #3333ff;
+}
+
+.my-btn-darkred {
+  background: darkred;
+  border-color: #580000;
+}
+.my-btn-darkred:hover {
+  background: #580000;
+  border-color: #250000;
+}
+.my-btn-darkred.disabled, .my-btn-darkred.disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #f10000;
+  border-color: #be0000;
+}
+
+.my-btn-darkgreen {
+  background: darkgreen;
+  border-color: #003100;
+}
+.my-btn-darkgreen:hover {
+  background: #003100;
+  border-color: black;
+}
+.my-btn-darkgreen.disabled, .my-btn-darkgreen.disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #00ca00;
+  border-color: #009700;
+}/*# sourceMappingURL=style.css.map */

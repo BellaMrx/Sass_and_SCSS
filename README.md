@@ -16,6 +16,8 @@
     - 1.8. Media queries and @content
     - 1.9. Operators
     - 1.10. Adjust colors and brightness
+    - 1.11. Control structures of Sass
+    - 1.12. @function
 
 ------------------------------------------------------
 
@@ -907,4 +909,135 @@ Colors can be used in Sass in the same way as in CSS. In addition, functions tha
 
  ![Preview](images/Preview_1_12.jpg)
 
- 
+
+---------------------------------------------
+
+## 1.11. Control structures of Sass
+Control structures such as loops can be used to automate the generation of CSS codes for elements in different colors.
+
+- With the `@each` loop it is possible to process a list of elements e.g. related to the buttons a list of color values in the form of CSS keywords should be used. This way it is possible to create different buttons in different color schemes comfortably and with very little effort.
+
+ example --> *Examples/Part_13/styles/style.scss*
+   ```
+    $btn-list: blue,darkred,darkgreen;
+    ...
+    @each $btn-default in $btn-list {
+        .my-btn-#{$btn-default} {
+            @extend %button-basic;
+            @include btn($btn-default);
+            &:hover {
+                @include btn-hover($btn-default);
+            }
+            &.disabled,
+            &.disabled:hover {
+                cursor: not-allowed;
+                opacity: .65;
+                @include btn-disabled($btn-default);
+            }
+        }
+    }
+   ```
+
+ example --> *Examples/Part_13/styles/style.css*
+   ```
+    .my-btn-darkgreen, .my-btn-darkred, .my-btn-blue {
+        ...
+    }
+
+    .my-btn-blue {
+        ...
+    }
+    .my-btn-blue:hover {
+        ...
+    }
+    .my-btn-blue.disabled, .my-btn-blue.disabled:hover {
+        ...
+    }
+
+    .my-btn-darkred {
+        ...
+    }
+    .my-btn-darkred:hover {
+        ...
+    }
+    .my-btn-darkred.disabled, .my-btn-darkred.disabled:hover {
+        ...
+    }
+
+    .my-btn-darkgreen {
+        ...
+    }
+    .my-btn-darkgreen:hover {
+        ...
+    }
+    .my-btn-darkgreen.disabled, .my-btn-darkgreen.disabled:hover {
+        ...
+    }
+   ```
+
+ ![Preview](images/Preview_1_13.JPG)
+
+- In addition to the `@each` loop, there are other control strokes in Sass. One of these is the `@for` loop, which can be used to set a certain number of repetitions for the code.
+
+   ```
+    for $counter from 1 through 10 {
+        // Code is executed 10 times
+        .my-class-#{$counter} {
+
+        }
+    }
+   ```
+The loop is executed ten times here. With the help of an interpolation with `#{}` ten selectors `.my-class-1`, `.my-class-2` etc. are generated here.
+
+- With the `@while` loop the condition is executed until it is false.
+
+   ```
+    $counter: 1;
+    $reply: 5;
+
+    @while $counter <= reply {
+        $counter: counter + 1
+    }
+   ```
+
+The loop is repeated as long as `$counter` is less than-equal to the value of `$reply`. Incrementing the `$counter` variable at the end is important to avoid creating an infinite loop.
+
+- Besides the loops, there is also `@if` which can be used to check a condition. The CSS preprocessor compiles a certain code only if the condition is true.
+
+   ```
+    ...
+    @mixin btn-hover($btn-color:orange, $hover-effect: 1) {
+        @if $hover-effect==1 {
+            $hover-color: saturate($btn-color, 10%);
+            $hover-color: darken($hover-color, 10%);
+            background: $hover-color;
+            border-color: darken($btn-color, 20%);
+        }
+    }
+    ...
+        @include btn-hover($btn-default, 0);
+    ...
+   ```
+
+In this example, a CSS code block is generated only if `$hover-effect` is equal to 1.
+
+- There is also an alternative `@else` branch that is executed if the `@if` condition is not true.
+
+   ```
+    ...
+    @mixin btn-hover($btn-color:orange, $hover-effect: 1) {
+        @if $hover-effect==1 {
+            ...
+        }
+        @else {
+            cursor: not-allowed;
+        }
+    }
+   ```
+
+In this example, in the case of a disabled hover effect, the cursor was changed to a stop symbol when the cursor was over the button.
+
+
+-----------------------------------------
+
+## 1.12. @function
