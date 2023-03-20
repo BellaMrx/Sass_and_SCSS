@@ -1,0 +1,42 @@
+$mq-mobile: 30em;
+$mq-desktop: 60em;
+$article-width: 80%;
+$font-increase: 0.125em;
+$base-size: 1;
+$font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+@mixin breakpoint($mq-width) {
+    @media screen and (min-width: $mq-width) {
+        @content;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.my-article {
+    font-family: $font;
+    font-size: font-size;
+    padding: $base-size * 1em;
+    background-color: lightgrey;
+    margin: 1em;
+    @include breakpoint($mq-mobile) {
+        font-size: $base-size + $font-increase;
+        width: $article-width;
+    }
+    @include breakpoint($mq-desktop) {
+        font-size: $base-size + ($font-increase * 2);
+        width: $article-width / 2;
+    }
+}
+
+h1 {
+    margin-top: 0;
+    @include breakpoint($mq-mobile) {
+        font-size: 1.25em;
+    }
+    @include breakpoint($mq-desktop) {
+        font-size: 1.5em;
+    }
+}

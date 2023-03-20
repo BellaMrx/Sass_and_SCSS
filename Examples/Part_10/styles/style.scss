@@ -1,0 +1,39 @@
+$mq-mobile: 30em;
+$mq-desktop: 60em;
+$font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+@mixin breakpoint($mq-width) {
+    @media screen and (min-width: $mq-width) {
+        @content;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.my-article {
+    font-family: $font;
+    font-size: 1em;
+    padding: 1em;
+    background-color: lightgrey;
+    margin: 1em;
+    @include breakpoint($mq-mobile) {
+        font-size: 1.125em;
+        width: 90%;
+    }
+    @include breakpoint($mq-desktop) {
+        font-size: 1.25em;
+        width: 40%;
+    }
+}
+
+h1 {
+    margin-top: 0;
+    @include breakpoint($mq-mobile) {
+        font-size: 1.25em;
+    }
+    @include breakpoint($mq-desktop) {
+        font-size: 1.5em;
+    }
+}

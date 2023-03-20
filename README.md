@@ -13,6 +13,8 @@
     - 1.5. Nesting with Sass
     - 1.6. Mixins (@mixin, @include)
     - 1.7. @extend
+    - 1.8. Media queries and @content
+    - 1.9. Operators
 
 ------------------------------------------------------
 
@@ -644,4 +646,164 @@ With the second possibility, instead of defining a selector which is not used at
    ```
 
  ![Preview](images/Preview_1_9.JPG)
+
+
+-------------------------------------------------------
+
+## 1.8. Media queries and @content
+The `breakpoint` can be defined as variables and adjusted at any time. So-called **Inline Media Queries** can also be used, which is an enormous help for extensive projects.
+
+With `@content` a content can be inserted (into a mixin). This tells the CSS preprocessor that it should also insert the content of the following SCSS code block at this point when compiling.
+
+ example --> *Examples/Part_10/styles/style.scss*
+   ```
+    $mq-mobile: 30em;
+    $mq-desktop: 60em;
+    $font: 'Franklin Gothic','Arial Narrow',Arial,sans-serif;
+    @mixin breakpoint($mq-width) {
+        @media screen and (min-width: $mq-width) {
+            @content;
+        }
+    }
+
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .my-article {
+        font-family: $font;
+        font-size: 1em;
+        padding: 1em;
+        background-color: lightgrey;
+        margin: 1em;
+        @include breakpoint($mq-mobile) {
+            font-size: 1.125em;
+            width: 90%;
+        }
+        @include breakpoint($mq-desktop) {
+            font-size: 1.25em;
+            width: 40%;
+        }
+    }
+
+    h1 {
+        margin-top: 0;
+        @include breakpoint($mq-mobile) {
+            font-size: 1.25em;
+        }
+        @include breakpoint($mq-desktop) {
+            font-size: 1.5em;
+        }
+    }
+   ```
+
+ example --> *Examples/Part_10/styles/style.css*
+   ```
+    .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .my-article {
+        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+        font-size: 1em;
+        padding: 1em;
+        background-color: lightgrey;
+        margin: 1em;
+    }
+    @media screen and (min-width: 30em) {
+        .my-article {
+            font-size: 1.125em;
+            width: 90%;
+        }
+    }
+    @media screen and (min-width: 60em) {
+        .my-article {
+            font-size: 1.25em;
+            width: 40%;
+        }
+    }
+
+    h1 {
+    margin-top: 0;
+    }
+    @media screen and (min-width: 30em) {
+        h1 {
+            font-size: 1.25em;
+        }
+    }
+    @media screen and (min-width: 60em) {
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+   ```
+
+In this example, a mobile version (30em) and a desktop version (60em) were created. In the mobile version, the articles are displayed one below the other in the flexbox and side by side in the desktop version.
+
+Desktop-Version
+
+ ![Preview](images/Preview_1_10.JPG)
+
+Mobile-Version
+
+ ![Preview](images/Preview_1_10_mobile.JPG)
+
+
+----------------------------------------------------
+
+## 1.9. Operators
+With Sass you can also use calculation operators like `+ - * /` and `%`.
+
+ example --> *Examples/Part_11/styles/style.scss*
+   ```
+    ...
+    $article-width: 80%;
+    $font-increase: 0.125em;
+    $base-size: 1;
+    ...
+    .my-article {
+        font-family: $font;
+        font-size: font-size;
+        padding: $base-size * 1em;
+        background-color: lightgrey;
+        margin: 1em;
+        @include breakpoint($mq-mobile) {
+            font-size: $base-size + $font-increase;
+            width: $article-width;
+        }
+        @include breakpoint($mq-desktop) {
+            font-size: $base-size + ($font-increase * 2);
+            width: $article-width / 2;
+        }
+    }
+   ```
+
+ example --> *Examples/Part_11/styles/style.css*
+   ```
+    ...
+    .my-article {
+        font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+        font-size: font-size;
+        padding: 1em;
+        background-color: lightgrey;
+        margin: 1em;
+    }
+    @media screen and (min-width: 30em) {
+    .my-article {
+        font-size: 1.125em;
+        width: 80%;
+    }
+    }
+    @media screen and (min-width: 60em) {
+    .my-article {
+        font-size: 1.25em;
+        width: 40%;
+    }
+    }
+   ```
+
+`$base-size * 1em` is used here because the variable `$base-size` has no unit and this way the unit em is set. With `$base-size + $font-increase` this was not necessary, because `$font-increase` is assigned with the unit `em`.
+
 

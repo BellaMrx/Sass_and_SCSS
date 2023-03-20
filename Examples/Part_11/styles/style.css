@@ -1,0 +1,38 @@
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.my-article {
+  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+  font-size: font-size;
+  padding: 1em;
+  background-color: lightgrey;
+  margin: 1em;
+}
+@media screen and (min-width: 30em) {
+  .my-article {
+    font-size: 1.125em;
+    width: 80%;
+  }
+}
+@media screen and (min-width: 60em) {
+  .my-article {
+    font-size: 1.25em;
+    width: 40%;
+  }
+}
+
+h1 {
+  margin-top: 0;
+}
+@media screen and (min-width: 30em) {
+  h1 {
+    font-size: 1.25em;
+  }
+}
+@media screen and (min-width: 60em) {
+  h1 {
+    font-size: 1.5em;
+  }
+}/*# sourceMappingURL=style.css.map */
