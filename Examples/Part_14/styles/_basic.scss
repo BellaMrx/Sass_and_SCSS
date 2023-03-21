@@ -1,0 +1,27 @@
+@mixin article-style {
+    background-color: $color-primary;
+    color: $color-primary-font;
+    padding: 0.1em;
+    margin-bottom: $spacing-std;
+    border-radius: 5px;
+}
+
+@mixin article-content {
+    background-color: $color-secondary;
+    color: $color-secondary-font;
+    padding: 2em;
+}
+
+body {
+    font-family: $font;
+}
+
+.my-article {
+    @include article-style;
+    h1 {
+        padding-left: 0.5em;
+    }
+    p {
+        @include article-content;
+    }
+}

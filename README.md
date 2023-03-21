@@ -18,6 +18,7 @@
     - 1.10. Adjust colors and brightness
     - 1.11. Control structures of Sass
     - 1.12. @function
+    - 1.13. @import
 
 ------------------------------------------------------
 
@@ -1041,3 +1042,86 @@ In this example, in the case of a disabled hover effect, the cursor was changed 
 -----------------------------------------
 
 ## 1.12. @function
+Sass offers the possibility to create real functions. It can return different data types like numeric values (10, 1.25, 2.5em), strings("text", 'text', text), colors(#fff, rgba()), boolean values(true, false) or even null values.
+
+A function is introduced with `@function` followed by the name of the function. Between the round brackets the arguments of the function are given. Between the curly brackets, the code of the function is written and with @return the value is returned. 
+
+- In this example, a pixel value is converted to an `em` value:
+   ```
+    $base-font-size: 16px;
+
+    @function px-to-em($px-val) {
+        @return ($px-val / $base-font-size) * 1em;
+    }
+
+    .my-article {
+        width: px-to-em(960px);
+        font-size: px-to-em(20px);
+    }
+   ```
+
+The CSS file would look like this:
+   ```
+    .my-article {
+        width: 60em;
+        font-size: 1.25em;
+    }
+   ```
+
+- In this example, based on a preferred color scheme like Twitter or Facebook, the color code is returned.
+   ```
+    $function select-color ($color: #fff) {
+        @if $color == facebook {
+            @return #3b5998;
+        }
+        @if $color == twitter {
+            @return #00acee;
+        }
+        @else {
+            @return $color;
+        }
+    }
+   ```
+
+--------------------------------------------------
+
+## 1.13. @import
+For large projects, it is not advisable to write everything in one SCSS file. It makes sense to split the SCSS files into sections. With `@import` all splitted areas in SCSS files can be compiled to one CSS file.
+
+ example --> *Examples/Part_14/styles/style.scss*
+   ```
+    @import "reset";
+    @import "setup";
+    @import "layout";
+    @import "basic";
+   ```
+
+The order in which the SCSS documents are noted when importing is also important. Especially if variables are used, they should be imported right at the beginning.
+
+
+--------------------------------
+
+## 1.14. Comments
+Comments can be noted in Sass as follows:
+- either as in CSS, these comments are also displayed in the CSS file 
+   ```
+    /* I am a comment */
+   ```
+or 
+- but this comment can only span one cell and this comment is not added to the CSS file by the CSS preprocessor
+   ```
+    // I am a comment 
+   ```
+
+---------------------------------------------------
+
+Here I have only explained the basics of Sass and SCSS. There is of course much more to know about this topic, I recommend the website [The Sass Way](http://thesassway.com/) and [Sass](https://sass-lang.com/guide).
+
+On my Twitter account [@bella_mrx](https://twitter.com/bella_mrx) you can find more useful stuff about HTML and web development. 
+
+Or check out my [GitHub](https://github.com/BellaMrx) profile.
+
+Thanks for reading. 
+I hope you enjoyed it or at least learned something.
+
+
