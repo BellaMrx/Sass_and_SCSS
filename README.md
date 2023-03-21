@@ -19,6 +19,7 @@
     - 1.11. Control structures of Sass
     - 1.12. @function
     - 1.13. @import
+    - 1.14. Comments
 
 ------------------------------------------------------
 
