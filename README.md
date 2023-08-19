@@ -127,7 +127,7 @@ To use Sass with Visual Studio Code, simply install the **Live Sass Compiler** e
 
 With the file index.html the CSS file is already included, but the CSS file does not exist yet.
 
- example --> *Examples/Part_1/index.html*
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/index.html) --> *Examples/Part_1/index.html*
    ```
     <head>
         <meta charset="UTF-8">
