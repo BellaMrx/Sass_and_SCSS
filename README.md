@@ -127,7 +127,6 @@ To use Sass with Visual Studio Code, simply install the **Live Sass Compiler** e
 
 With the file index.html the CSS file is already included, but the CSS file does not exist yet.
 
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/index.html) --> *Examples/Part_1/index.html*
    ```
     <head>
         <meta charset="UTF-8">
@@ -144,11 +143,11 @@ With the file index.html the CSS file is already included, but the CSS file does
             <p>Lorem ipsum dolor sit amet..s.</p>
         </article>
     </body>  
-   ``` 
+   ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/index.html) --> *Examples/Part_1/index.html* 
 
 Via Sass the class `my-article` is styled now:
 
- example --> *Examples/Part_1/styles/style.scss*
    ```
     $color-primary: #5f5f5f;
     $color-primary-font: #fff;
@@ -164,6 +163,7 @@ Via Sass the class `my-article` is styled now:
         margin-bottom: 1em;
     } 
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.scss) --> *Examples/Part_1/styles/style.scss*
 
 In order for the CSS preprocessor Sass to now automatically make a CSS file **style.css** out of it, all you have to do is activate the *Watch Sass* option at the bottom of the Visual Studio Code development environment. This turns the live translation from Sass/SCSS to CSS.
 
@@ -175,7 +175,6 @@ After *WATCH SASS* is activated, the CSS file is automatically created in the fo
  ![Preview](images/WatchSassCSS.JPG)
 
 
- example --> *Examples/Part_1/styles/style.css*
    ```
     * {
         margin-top: 0;
@@ -189,6 +188,7 @@ After *WATCH SASS* is activated, the CSS file is automatically created in the fo
         margin-bottom: 1em;
     }    
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.css) --> *Examples/Part_1/styles/style.css*
 
 As long as *Watch Sass* is enabled, there is no need to worry about updating the CSS file. As soon as changes are made to the SCSS file, the CSS file is automatically adjusted as well. The active live translation can be recognized when the label *Watch Sass* is replaced by the label *Watching*. The translation takes place as soon as the SCSS file is saved again.
 
@@ -264,7 +264,6 @@ in practice:
     $spacing-std: 1em; 
    ```
 
- example --> *Examples/Part_2/styles/style.scss*
    ```
     $color-primary: #5f5f5f;
     $color-primary-font: #fff;
@@ -286,8 +285,8 @@ in practice:
         margin-bottom: $spacing-std;
     }   
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.scss) --> *Examples/Part_2/styles/style.scss*
 
- example --> *Examples/Part_2/styles/style.css*
    ```
     * {
         margin-top: 0;
@@ -305,6 +304,7 @@ in practice:
         margin-bottom: 1em;
     }  
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.css) --> *Examples/Part_2/styles/style.css*
 
  ![Preview](images/Preview_1_2.JPG)
 
@@ -314,7 +314,6 @@ in practice:
 ## 1.5. Nesting with Sass
 Nesting of selectors (selector nesting) is an enormous relief, however, the use should remain in the frame. A nesting of two to three levels should be sufficient. Here an example within the class `my-article` the selectors `p` and `h1` are nested.
 
- example --> *Examples/Part_3/styles/style.scss*
    ```
     ...
     .my-article {
@@ -334,8 +333,9 @@ Nesting of selectors (selector nesting) is an enormous relief, however, the use 
         }
     }  
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.scss) --> *Examples/Part_3/styles/style.scss*
 
- example --> *Examples/Part_3/styles/style.css*
+
    ```
     ...
     .my-article {
@@ -355,6 +355,7 @@ Nesting of selectors (selector nesting) is an enormous relief, however, the use 
         padding: 1em;
     } 
    ```
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.css) --> *Examples/Part_3/styles/style.css*
 
  ![Preview](images/Preview_1_3.JPG)
 
