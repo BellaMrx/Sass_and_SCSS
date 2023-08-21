@@ -127,6 +127,7 @@ To use Sass with Visual Studio Code, simply install the **Live Sass Compiler** e
 
 With the file index.html the CSS file is already included, but the CSS file does not exist yet.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/index.html) --> *Examples/Part_1/...*
    ```
     <head>
         <meta charset="UTF-8">
@@ -143,11 +144,11 @@ With the file index.html the CSS file is already included, but the CSS file does
             <p>Lorem ipsum dolor sit amet..s.</p>
         </article>
     </body>  
-   ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/index.html) --> *Examples/Part_1/...* 
+   ``` 
 
 Via Sass the class `my-article` is styled now:
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.scss) --> *Examples/Part_1/...*
    ```
     $color-primary: #5f5f5f;
     $color-primary-font: #fff;
@@ -163,7 +164,6 @@ Via Sass the class `my-article` is styled now:
         margin-bottom: 1em;
     } 
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.scss) --> *Examples/Part_1/...*
 
 In order for the CSS preprocessor Sass to now automatically make a CSS file **style.css** out of it, all you have to do is activate the *Watch Sass* option at the bottom of the Visual Studio Code development environment. This turns the live translation from Sass/SCSS to CSS.
 
@@ -175,6 +175,7 @@ After *WATCH SASS* is activated, the CSS file is automatically created in the fo
  ![Preview](images/WatchSassCSS.JPG)
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.css) --> *Examples/Part_1/...*
    ```
     * {
         margin-top: 0;
@@ -188,7 +189,6 @@ After *WATCH SASS* is activated, the CSS file is automatically created in the fo
         margin-bottom: 1em;
     }    
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_1/styles/style.css) --> *Examples/Part_1/...*
 
 As long as *Watch Sass* is enabled, there is no need to worry about updating the CSS file. As soon as changes are made to the SCSS file, the CSS file is automatically adjusted as well. The active live translation can be recognized when the label *Watch Sass* is replaced by the label *Watching*. The translation takes place as soon as the SCSS file is saved again.
 
@@ -264,6 +264,7 @@ in practice:
     $spacing-std: 1em; 
    ```
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.scss) --> *Examples/Part_2/...*
    ```
     $color-primary: #5f5f5f;
     $color-primary-font: #fff;
@@ -285,8 +286,8 @@ in practice:
         margin-bottom: $spacing-std;
     }   
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.scss) --> *Examples/Part_2/...*
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.css) --> *Examples/Part_2/...*
    ```
     * {
         margin-top: 0;
@@ -304,7 +305,6 @@ in practice:
         margin-bottom: 1em;
     }  
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_2/styles/style.css) --> *Examples/Part_2/...*
 
  ![Preview](images/Preview_1_2.JPG)
 
@@ -314,6 +314,7 @@ in practice:
 ## 1.5. Nesting with Sass
 Nesting of selectors (selector nesting) is an enormous relief, however, the use should remain in the frame. A nesting of two to three levels should be sufficient. Here an example within the class `my-article` the selectors `p` and `h1` are nested.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.scss) --> *Examples/Part_3/...*
    ```
     ...
     .my-article {
@@ -333,9 +334,9 @@ Nesting of selectors (selector nesting) is an enormous relief, however, the use 
         }
     }  
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.scss) --> *Examples/Part_3/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.css) --> *Examples/Part_3/...*
    ```
     ...
     .my-article {
@@ -355,12 +356,13 @@ Nesting of selectors (selector nesting) is an enormous relief, however, the use 
         padding: 1em;
     } 
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_3/styles/style.css) --> *Examples/Part_3/...*
+
 
  ![Preview](images/Preview_1_3.JPG)
 
 Nesting is also useful for CSS properties (property nesting), which are grouped under a name abbreviation. Here is an example for the property `padding`:
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_4/styles/style.scss) --> *Examples/Part_4/...*
    ```
     ...
     .my-article {
@@ -375,9 +377,9 @@ Nesting is also useful for CSS properties (property nesting), which are grouped 
     ...
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_4/styles/style.scss) --> *Examples/Part_4/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_4/styles/style.css) --> *Examples/Part_4/...*
    ```
     ...
     .my-article h1 {
@@ -387,7 +389,7 @@ Nesting is also useful for CSS properties (property nesting), which are grouped 
     }
     ...
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_4/styles/style.css) --> *Examples/Part_4/...*
+
 
 ------------------------------------------------------------
 
@@ -405,6 +407,7 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
    ```
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_5/styles/style.scss) --> *Examples/Part_5/...*
    ```
     ...
     @mixin article-style {
@@ -432,9 +435,9 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_5/styles/style.scss) --> *Examples/Part_5/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_5/styles/style.css) --> *Examples/Part_5/...*
    ```
     ...
     .my-article {
@@ -454,11 +457,12 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
         padding: 2em;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_5/styles/style.css) --> *Examples/Part_5/...*
+
 
 **Mixins** can also be used with arguments. Such arguments are noted inside round brackets with variables.
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_6/styles/style.scss) --> *Examples/Part_6/...*
    ```
     ...
     @mixin article-content($bg-color, $txt-color, $spacing) {
@@ -481,9 +485,9 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_6/styles/style.scss) --> *Examples/Part_6/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_6/styles/style.css) --> *Examples/Part_6/...*
    ```
     ...
     .my-article .p1 {
@@ -497,13 +501,14 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
         padding: 0.5em;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_6/styles/style.css) --> *Examples/Part_6/...*
+
 
  ![Preview](images/Preview_1_6.JPG)
 
 
 **Mixins** can be used with default values for the arguments. This can be done by writing the default value separated by a colon after the variable:
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_7/styles/style.scss) --> *Examples/Part_7/...*
    ```
     ...
     @mixin article-content($bg-color:$color-secondary, $txt-color:$color-secondary-font, $spacing:$spacing-std) {
@@ -523,7 +528,7 @@ Between the curly braces the CSS properties are noted. With `@include` the code 
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_7/styles/style.scss) --> *Examples/Part_7/...*
+
 
 The **Mixin** with arguments and default values can be used with and without values. If no values are set, the default values are used.
 
@@ -535,6 +540,7 @@ Unnecessary repetitions can also be avoided with **extends**. Such **extends** c
 
 With the first possibility, using `@extend` the CSS property of a selector can be split and in the new selector the necessary properties can be overwritten or extended.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_8/styles/style.scss) --> *Examples/Part_8/...*
    ```
     ...
     .my-article {
@@ -564,9 +570,9 @@ With the first possibility, using `@extend` the CSS property of a selector can b
         background-color: darkred;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_8/styles/style.scss) --> *Examples/Part_8/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_8/styles/style.css) --> *Examples/Part_8/...*
    ```
     ...
     .my-article, .my-article-std, .my-article-top {
@@ -594,10 +600,11 @@ With the first possibility, using `@extend` the CSS property of a selector can b
         background-color: darkred;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_8/styles/style.css) --> *Examples/Part_8/...*
+
 
 With the second possibility, instead of defining a selector which is not used at all and anyway only serves the extension with `@extend`, a placeholder can also be used. Such a placeholder is introduced with `%`.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_9/styles/style.scss) --> *Examples/Part_9/...*
    ```
     ...
     %my-article {
@@ -627,9 +634,9 @@ With the second possibility, instead of defining a selector which is not used at
         background-color: darkred;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_9/styles/style.scss) --> *Examples/Part_9/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_9/styles/style.css) --> *Examples/Part_9/...*
    ```
     ...
     .my-article-std, .my-article-top {
@@ -657,7 +664,7 @@ With the second possibility, instead of defining a selector which is not used at
         background-color: darkred;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_9/styles/style.css) --> *Examples/Part_9/...*
+
 
  ![Preview](images/Preview_1_9.JPG)
 
@@ -669,6 +676,7 @@ The `breakpoint` can be defined as variables and adjusted at any time. So-called
 
 With `@content` a content can be inserted (into a mixin). This tells the CSS preprocessor that it should also insert the content of the following SCSS code block at this point when compiling.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_10/styles/style.scss) --> *Examples/Part_10/...*
    ```
     $mq-mobile: 30em;
     $mq-desktop: 60em;
@@ -710,9 +718,9 @@ With `@content` a content can be inserted (into a mixin). This tells the CSS pre
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_10/styles/style.scss) --> *Examples/Part_10/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_10/styles/style.css) --> *Examples/Part_10/...*
    ```
     .flex-container {
         display: flex;
@@ -753,7 +761,7 @@ With `@content` a content can be inserted (into a mixin). This tells the CSS pre
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_10/styles/style.css) --> *Examples/Part_10/...*
+
 
 In this example, a mobile version (30em) and a desktop version (60em) were created. In the mobile version, the articles are displayed one below the other in the flexbox and side by side in the desktop version.
 
@@ -771,6 +779,7 @@ Mobile-Version
 ## 1.9. Operators
 With Sass you can also use calculation operators like `+ - * /` and `%`.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_11/styles/style.scss) --> *Examples/Part_11/...*
    ```
     ...
     $article-width: 80%;
@@ -793,9 +802,9 @@ With Sass you can also use calculation operators like `+ - * /` and `%`.
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_11/styles/style.scss) --> *Examples/Part_11/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_11/styles/style.css) --> *Examples/Part_11/...*
    ```
     ...
     .my-article {
@@ -818,7 +827,7 @@ With Sass you can also use calculation operators like `+ - * /` and `%`.
     }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_11/styles/style.css) --> *Examples/Part_11/...*
+
 
 `$base-size * 1em` is used here because the variable `$base-size` has no unit and this way the unit em is set. With `$base-size + $font-increase` this was not necessary, because `$font-increase` is assigned with the unit `em`.
 
@@ -839,7 +848,7 @@ Colors can be used in Sass in the same way as in CSS. In addition, functions tha
 | `complement(color)` | background:complement($color); | creates the complementary color to the specified color |
 | `grayscale(color)` | background:grayscalet($color); | converts the specified color into grayscale |
 
-
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_12/styles/style.scss) --> *Examples/Part_12/...*
    ```
     $btn-default: #3196cb;
     $btn-color: white;
@@ -888,9 +897,9 @@ Colors can be used in Sass in the same way as in CSS. In addition, functions tha
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_12/styles/style.scss) --> *Examples/Part_12/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_12/styles/style.css) --> *Examples/Part_12/...*
    ```
     .my-btn {
         margin-bottom: 1em;
@@ -920,7 +929,7 @@ Colors can be used in Sass in the same way as in CSS. In addition, functions tha
         border-color: #58abd7;
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_12/styles/style.css) --> *Examples/Part_12/...*
+
 
  ![Preview](images/Preview_1_12.jpg)
 
@@ -932,6 +941,7 @@ Control structures such as loops can be used to automate the generation of CSS c
 
 - With the `@each` loop it is possible to process a list of elements e.g. related to the buttons a list of color values in the form of CSS keywords should be used. This way it is possible to create different buttons in different color schemes comfortably and with very little effort.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_13/styles/style.scss) --> *Examples/Part_13/...*
    ```
     $btn-list: blue,darkred,darkgreen;
     ...
@@ -951,9 +961,9 @@ Control structures such as loops can be used to automate the generation of CSS c
         }
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_13/styles/style.scss) --> *Examples/Part_13/...*
 
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_13/styles/style.css) --> *Examples/Part_13/...*
    ```
     .my-btn-darkgreen, .my-btn-darkred, .my-btn-blue {
         ...
@@ -989,7 +999,7 @@ Control structures such as loops can be used to automate the generation of CSS c
         ...
     }
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_13/styles/style.css) --> *Examples/Part_13/...*
+
 
  ![Preview](images/Preview_1_13.JPG)
 
@@ -1104,13 +1114,14 @@ The CSS file would look like this:
 ## 1.13. @import
 For large projects, it is not advisable to write everything in one SCSS file. It makes sense to split the SCSS files into sections. With `@import` all splitted areas in SCSS files can be compiled to one CSS file.
 
+ [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_14/styles/style.scss) --> *Examples/Part_14/...*
    ```
     @import "reset";
     @import "setup";
     @import "layout";
     @import "basic";
    ```
- [Complete Code](https://github.com/BellaMrx/Sass_and_SCSS/blob/main/Examples/Part_14/styles/style.scss) --> *Examples/Part_14/...*
+
 
 The order in which the SCSS documents are noted when importing is also important. Especially if variables are used, they should be imported right at the beginning.
 
